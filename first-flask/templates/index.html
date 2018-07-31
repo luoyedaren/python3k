@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %} Flasky -Index {% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Index time : {{ moment(time).format('LLL') }}</h1>
+        <h2>that was {{ moment(time).fromNow(refresh=True) }}</h2>
+        <p>L:Index time : {{ moment(time).format('L') }}</p>
+        <p>LL:Index time : {{ moment(time).format('LL') }}</p>
+        <p>LLL:Index time : {{ moment(time).format('LLL') }}</p>
+    </div>
+
+    {% if name %}
+        <p> hello {{ name }}</p>
+    {% else %}
+        <p>hello stranger </p>
+    {% endif %}
+
+    {{ wtf.quick_form(form) }}
+
+{% endblock %}
